@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8" lang="pt-br">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tucano Material de Construções</title>
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/bootstrap-4.0.0/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/font-awesome-5.0.8/fa-brands.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/font-awesome-5.0.8/fa-regular.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/font-awesome-5.0.8/fa-solid.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/font-awesome-5.0.8/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/tucano-construcoes.css">
+    <script src="../js/frameworks/bootstrap-4.0.0/bootstrap.min.js"></script>
+    <script src="../js/frameworks/angular-1.6.9/angular.min.js"></script>
+    <script src="../js/frameworks/angular-animate/angular-animate.min.js"></script>
+    <script src="../js/frameworks/angular-cookies/angular-cookies.min.js"></script>
+    <script src="../js/modulos/selecao-cliente.js"></script>
+    <script src="../js/controllers/selecao-cliente-controller.js"></script>
+</head>
+    <body ng-app="selecaoCliente" ng-controller="selecaoClienteController">
+        <header ng-include="'../templates/tucano-barra-navegacao.html'"></header>
+        <div id="pagina-selecao-cliente" class="container-fluid">
+            <h1>Clientes Cadastrados</h1><br>
+            <div id="tabela-clientes">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>RG</th>
+                            <th>CPF</th>
+                            <th>Data de Nascimento</th>
+                            <th>Sexo</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-model="clientes" ng-if="!clientes || clientes.length == 0">
+                            <td><b>Não há clientes cadastrados!</b></td>
+                        </tr>
+                        <tr ng-repeat="cliente in clientes | orderBy:'nome'">
+                            <td>
+                                <span ng-bind="cliente.nome"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="cliente.email"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="cliente.telefoneContato"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="cliente.rg"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="cliente.cpf"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="cliente.dataNascimento | date:'dd/MM/yyyy'"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="cliente.sexo"></span>
+                            </td>
+                            <td>
+                                <button class="btn btn-success" type="button" ng-click="selecionarCliente(cliente)">
+                                    <i class="fas fa-check-circle"></i>
+                                     Selecionar
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+            </div>
+        </div>
+    </body>
+</html>

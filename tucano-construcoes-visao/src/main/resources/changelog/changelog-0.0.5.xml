@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="0.0.5" author="mauricio.anselmo" >
+        <preConditions onFail="MARK_RAN">
+        <not>
+        <tableExists tableName="compra" schemaName="public"/>
+        </not>
+        </preConditions>
+
+        <createTable tableName="compra">
+            <column name="compra_id" type="bigint" autoIncrement="true" incrementBy="1" startWith="1">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="compra_data" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="compra_produto" type="bigint">
+                <constraints nullable="false" foreignKeyName="compra_produto" referencedColumnNames="produto_id" referencedTableName="produto"/>
+            </column>
+            <column name="compra_cliente" type="bigint">
+                <constraints nullable="false" foreignKeyName="compra_cliente" referencedColumnNames="cliente_id" referencedTableName="cliente"/>
+            </column>
+            <column name="compra_funcionario" type="bigint">
+                <constraints nullable="false" foreignKeyName="compra_funcionario" referencedColumnNames="funcionario_id" referencedTableName="funcionario"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

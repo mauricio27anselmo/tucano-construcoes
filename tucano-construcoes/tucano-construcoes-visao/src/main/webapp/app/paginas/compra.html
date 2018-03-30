@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8" lang="pt-br">
+    <title>Tucano Material de Construções</title>
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/bootstrap-4.0.0/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/angular-growl-v2/angular-growl.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/tucano-construcoes.css">
+    <script src="../js/frameworks/bootstrap-4.0.0/bootstrap.min.js"></script>
+    <script src="../js/frameworks/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="../js/frameworks/angular-1.6.9/angular.min.js"></script>
+    <script src="../js/frameworks/angular-animate/angular-animate.min.js"></script>
+    <script src="../js/frameworks/angular-cookies/angular-cookies.min.js"></script>
+    <script src="../js/frameworks/angular-growl-v2/angular-growl.min.js"></script>
+    <script src="../js/modulos/compra.js"></script>
+    <script src="../js/controllers/compra-controller.js"></script>
+</head>
+    <body ng-app="compra" ng-controller="compraController">
+        <header ng-include="'../templates/tucano-barra-navegacao.html'"></header>
+        <div id="pagina-compra">
+            <div growl limit-messages="1"></div>
+            <div class="container-fluid">
+                <h1>Dados de Compra</h1><br>
+                <form ng-submit="efetuarCompra(compra)">
+                    <div class="row">
+                        <div class="form-group col-8">
+                            <label for="compraCliente">Nome do cliente:</label>
+                            <input type="text" class="form-control" id="compraCliente" ng-model="compra.cliente.nome" placeholder="Cliente não informado" style="width: 75%;" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col-6">
+                            <a class="btn btn-success" href="selecao-cliente.html" style="margin-right: 10px;">Selecionar Cliente</a>
+                            <a class="btn btn-success" href="cadastro-cliente.html" style="margin-right: 10px;">Cadastro Cliente</a>
+                        </div>
+                    </div>
+                    <div class="container-fluid" style="margin-top:30px;">
+                        <div id="tabela-compra">
+                            <h2>Produtos selecionados</h2>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Descrição</th>
+                                        <th>Tipo de material</th>
+                                        <th>Fabricante</th>
+                                        <th>Valor(R$)</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="produto in compra.listaProdutos | orderBy:'descricao'">
+                                        <td>
+                                            <span ng-bind="produto.codigo"></span>
+                                        </td>
+                                        <td>
+                                            <span ng-bind="produto.descricao"></span>
+                                        </td>
+                                        <td>
+                                            <span ng-bind="produto.tipo"></span>
+                                        </td>
+                                        <td>
+                                            <span ng-bind="produto.fabricante"></span>
+                                        </td>
+                                        <td>
+                                            <span ng-bind="produto.valor | currency:'R$ '"></span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            <br>
+                            <b>Valor Total:<span ng-bind="compra.valorTotal | currency:'R$ '"></span></b>
+                            <button type="submit" class="btn btn-success" style="float:right;">Confirmar Compra</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

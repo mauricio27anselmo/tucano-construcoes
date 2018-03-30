@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+div#pagina-inicial{
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 60px;
+    font-size: 60px;
+    color: rgb(0, 128, 0);
+    font-family: Stencil Std, fantasy;
+    text-align: center;
+}
+
+div#pagina-selecao-cliente, div#pagina-cadastro-cliente, div#pagina-ofertas,
+ div#pagina-compra, div#pagina-historia, div#pagina-unidades{
+     margin-top: 50px;
+     margin-left: 40px;
+     margin-right: 40px;
+     padding: 30px;
+
+ }
+
+div#pagina-selecao-cliente h1, div#pagina-cadastro-cliente h1, div#pagina-ofertas h1,
+div#pagina-compra h1, div#pagina-historia h1, div#pagina-unidades h1,
+div#pagina-selecao-cliente h2, div#pagina-cadastro-cliente h2, div#pagina-ofertas h2,
+div#pagina-compra h2, div#pagina-historia h2, div#pagina-unidades h2{
+    font-family: Stencil Std, fantasy;
+    color: rgb(0, 128, 0);
+}
+
+div#pagina-ofertas.container-fluid > div#tabela-ofertas{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+div#pagina-historia.container-fluid p, div#pagina-unidades.container-fluid p{
+    text-indent: 40px;
+    margin-right: 60px;
+}
+
+div#pagina-historia.container-fluid ol li{
+    font-weight: bold;
+}
+
+div#unidade-goiania, div#unidade-anapolis, div#unidade-jatai, div#unidade-itumbiara, div#unidade-trindade{
+    margin-top: 30px;
+    padding-right: 120px;
+    padding-left: 120px;
+}

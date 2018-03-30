@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8" lang="pt-br">
+    <title>Tucano Material de Construções</title>
+    <link rel="stylesheet" type="text/css" href="app/css/frameworks/bootstrap-4.0.0/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="app/css/tucano-construcoes.css">
+    <script src="app/js/frameworks/bootstrap-4.0.0/bootstrap.min.js"></script>
+    <script src="app/js/frameworks/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="app/js/frameworks/angular-1.6.9/angular.min.js"></script>
+    <script src="app/js/modulos/home.js"></script>
+    <script src="app/js/controllers/home-controller.js"></script>
+</head>
+<body ng-app="home" ng-controller="homeController">
+    <header ng-include="'app/templates/tucano-barra-navegacao-inicial.html'"></header>
+    <div id="pagina-inicial" class="container-fluid">
+        <p>Seja bem vindo a nossa loja, confira os nossos produtos.</p>
+        <p>Temos um desconto especial para você</p>
+        <img src="app/imagens/produtos-ofertas.jpg">
+    </div>
+</body>
+</html>

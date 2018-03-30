@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8" lang="pt-br">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tucano Material de Construções</title>
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/bootstrap-4.0.0/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/font-awesome-5.0.8/fa-solid.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/font-awesome-5.0.8/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/angular-growl-v2/angular-growl.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/tucano-construcoes.css">
+    <script src="../js/frameworks/bootstrap-4.0.0/bootstrap.min.js"></script>
+    <script src="../js/frameworks/angular-1.6.9/angular.min.js"></script>
+    <script src="../js/frameworks/angular-animate/angular-animate.min.js"></script>
+    <script src="../js/frameworks/angular-cookies/angular-cookies.min.js"></script>
+    <script src="../js/frameworks/angular-growl-v2/angular-growl.min.js"></script>
+    <script src="../js/modulos/ofertas.js"></script>
+    <script src="../js/controllers/ofertas-controller.js"></script>
+</head>
+<body ng-app="ofertas" ng-controller="ofertasController">
+    <header ng-include="'../templates/tucano-barra-navegacao.html'"></header>
+    <div id="pagina-ofertas" class="container-fluid">
+        <div growl limit-messages="1"></div>
+        <div id="tabela-ofertas">
+            <h1>Nossas Ofertas</h1><br>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Descrição</th>
+                            <th>Tipo de material</th>
+                            <th>Fabricante</th>
+                            <th>Valor</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="produto in produtos | orderBy:'descricao'">
+                            <td>
+                                <span ng-bind="produto.codigo"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="produto.descricao"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="produto.tipo"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="produto.fabricante"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="produto.valor| currency:'R$'"></span>
+                            </td>
+                            <td>
+                                <button class="btn btn-success" type="button" ng-click="adicionarCarrinho(produto)">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Comprar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="tabela-carrinho" ng-model="listaCompras" ng-if="listaCompras.length > 0">
+                <h1>Carrinho</h1>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Descrição</th>
+                            <th>Tipo de material</th>
+                            <th>Fabricante</th>
+                            <th>Valor(R$)</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in listaCompras track by $index">
+                            <td>
+                                <span ng-bind="item.codigo"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="item.descricao"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="item.tipo"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="item.fabricante"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="item.valor | currency:'R$'"></span>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" type="button" ng-click="retirarCarrinho(item)">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Retirar
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-success" style="float:right;" ng-click="efetuarCompra()">Efetuar Compra</button>
+        </div>
+    </div>
+</body>
+</html>

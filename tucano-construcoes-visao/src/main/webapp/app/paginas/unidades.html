@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8" lang="pt-br">
+    <title>Tucano Material de Construções</title>
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/bootstrap-4.0.0/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/tucano-construcoes.css">
+    <script src="../js/frameworks/bootstrap-4.0.0/bootstrap.min.js"></script>
+    <script src="../js/frameworks/angular-1.6.9/angular.min.js"></script>
+    <script src="../js/modulos/unidades.js"></script>
+    <script src="../js/controllers/unidades-controller.js"></script>
+</head>
+<body ng-app="unidades" ng-controller="unidadesController">
+    <header ng-include="'../templates/tucano-barra-navegacao.html'"></header>
+    <div id="pagina-unidades" class="container-fluid">
+        <div class="container-fluid">
+            <h1>Nossas Unidades</h1><br>
+            <p>Confira uma unidade <b>TUCANO Materiais de Construção</b> mais perto de você:</p>
+            <div class="row">
+                <div id="unidade-goiania" class="col-6">
+                    <h2>Unidade Goiânia(Unidade Matriz)</h2>
+                    <img src="../imagens/bandeira-goiania.jpg">
+                </div>
+                <div id="unidade-anapolis" class="col-6">
+                    <h2>Unidade Anápolis</h2>
+                    <img src="../imagens/bandeira-anapolis.jpg">
+                </div>
+            </div>
+            <div class="row">
+                <div id="unidade-jatai" class="col-6">
+                    <h2>Unidade Jataí</h2>
+                    <img src="../imagens/bandeira-jatai.jpg">
+                </div>
+                <div id="unidade-itumbiara" class="col-6">
+                    <h2>Unidade Itumbiara</h2>
+                    <img src="../imagens/bandeira-itumbiara.jpg">
+                </div>
+            </div>
+            <div class="row">
+                <div id="unidade-trindade" class="col-6">
+                    <h2>Unidade Trindade</h2>
+                    <img src="../imagens/bandeira-trindade.jpg">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

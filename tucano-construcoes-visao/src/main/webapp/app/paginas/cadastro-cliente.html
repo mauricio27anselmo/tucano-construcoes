@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8" lang="pt-br">
+    <title>Tucano Material de Construções</title>
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/bootstrap-4.0.0/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/frameworks/angular-growl-v2/angular-growl.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/tucano-construcoes.css">
+    <script src="../js/frameworks/bootstrap-4.0.0/bootstrap.min.js"></script>
+    <script src="../js/frameworks/angular-1.6.9/angular.min.js"></script>
+    <script src="../js/frameworks/angular-animate/angular-animate.min.js"></script>
+    <script src="../js/frameworks/angular-cookies/angular-cookies.min.js"></script>
+    <script src="../js/frameworks/angular-growl-v2/angular-growl.min.js"></script>
+    <script src="../js/frameworks/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="../js/frameworks/jquery-mask-plugin/jquery.mask.js"></script>
+    <script src="../js/modulos/cadastro-cliente.js"></script>
+    <script src="../js/controllers/cadastro-cliente-controller.js"></script>
+</head>
+    <body ng-app="cadastroCliente" ng-controller="cadastroClienteController" ng->
+        <header ng-include="'../templates/tucano-barra-navegacao.html'"></header>
+        <div id="pagina-cadastro-cliente">
+            <div growl limit-messages="1"></div>
+            <div class="container-fluid">
+                <h1>Novo cliente</h1><br>
+                <form id="formulario-cliente" ng-submit="cadastrarCliente(cliente)">
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="clienteNome"> Nome completo</label>
+                            <input type="text" class="form-control" id="clienteNome" ng-model="cliente.nome"  placeholder="Nome completo do cliente" style="width: 75%;" required>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="clienteRG">RG</label>
+                            <!--<input type="number" class="form-control" id="clienteRG" ng-model="cliente.rg"  placeholder="RG (somente digitos)" min="0" max="9999999" required>-->
+                            <input type="text" class="form-control rg" id="clienteRG" ng-model="cliente.rg"  placeholder="RG (somente digitos)" minlength="7" required>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="clienteCPF">CPF</label>
+                            <!--<input type="number" class="form-control" id="clienteCPF" ng-model="cliente.cpf" placeholder="CPF (somente digitos)" min="0" max="99999999999" required>-->
+                            <input type="text" class="form-control cpf" id="clienteCPF" ng-model="cliente.cpf" placeholder="CPF (somente digitos)" minlength="14" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="clienteEmail">E-mail</label>
+                            <input type="mail" class="form-control" id="clienteEmail" ng-model="cliente.email"  placeholder="E-mail do cliente" style="width: 75%;" ng-blur="validarEmail()" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="clienteTelefoneContato">Telefone de Contato</label>
+                            <!--<input type="telephone" class="form-control" id="clienteContato" ng-model="cliente.contato"  placeholder="(12)1234-4567" style="width: 48%;" required>-->
+                            <input type="text" class="form-control telefone" id="clienteTelefoneContato" ng-model="cliente.telefoneContato"  placeholder="(12)1234-4567" minlength="13" style="width: 48%;" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="clienteDataNascimento">Data de Nascimento</label>
+                            <input type="date" class="form-control" id="clienteDataNascimento" ng-model="cliente.dataNascimento" style="width: 25%;" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="clienteSexo">Sexo</label>
+                            <select type="text" class="form-control" id="clienteSexo" ng-model="cliente.sexo" style="width: 25%;" required>
+                                <option>Masculino</option>
+                                <option>Feminino</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success" style="float:right;">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
