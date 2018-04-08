@@ -5,7 +5,10 @@
         .controller('ofertasController',['$scope', '$http', '$window', '$cookies', 'growl', ofertasController]);
 
     function ofertasController($scope, $http, $window, $cookies, growl){
-
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip(); 
+        });
+        
         carregarProdutos();
 
 

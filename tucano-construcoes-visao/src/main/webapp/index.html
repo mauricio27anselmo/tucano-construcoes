@@ -5,8 +5,9 @@
     <title>Tucano Material de Construções</title>
     <link rel="stylesheet" type="text/css" href="app/css/frameworks/bootstrap-4.0.0/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="app/css/tucano-construcoes.css">
-    <script src="app/js/frameworks/bootstrap-4.0.0/bootstrap.min.js"></script>
     <script src="app/js/frameworks/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="app/js/frameworks/popper-1.14.3/popper.min.js"></script>
+    <script src="app/js/frameworks/bootstrap-4.0.0/bootstrap.min.js"></script>
     <script src="app/js/frameworks/angular-1.6.9/angular.min.js"></script>
     <script src="app/js/modulos/home.js"></script>
     <script src="app/js/controllers/home-controller.js"></script>
@@ -16,7 +17,47 @@
     <div id="pagina-inicial" class="container-fluid">
         <p>Seja bem vindo a nossa loja, confira os nossos produtos.</p>
         <p>Temos um desconto especial para você</p>
-        <img src="app/imagens/produtos-ofertas.jpg">
+
+        <div id="apresentacao-produtos" class="carousel slide" data-ride="carousel">
+
+            
+            <ul class="carousel-indicators">
+              <li data-target="#apresentacao-produtos" data-slide-to="0" class="active"></li>
+              <li data-target="#apresentacao-produtos" data-slide-to="1"></li>
+              <li data-target="#apresentacao-produtos" data-slide-to="2"></li>
+            </ul>
+    
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="app/imagens/tintas.jpg" alt="Los Angeles" width="1300" height="750">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Tintas</h5>
+                    <p>Confira a nossa variedades de tintas</p>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img src="app/imagens/cimentos.jpg" alt="Chicago" width="1300" height="750">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Cimentos</h5>
+                    <p>Confira o nosso estoque de cimentos para a sua obra</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="app/imagens/materiais-eletricos.jpg" alt="New York" width="1300" height="750">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Fios</h5>
+                    <p>Temos diversos tipos de fios que podem ser usados na sua obra</p>
+                  </div>
+              </div>
+            </div>
+            
+            <a class="carousel-control-prev" href="#apresentacao-produtos" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#apresentacao-produtos" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
     </div>
 </body>
 </html>
