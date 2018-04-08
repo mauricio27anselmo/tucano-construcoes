@@ -8,9 +8,9 @@
 
     <changeSet id="0.0.2" author="mauricio.anselmo" >
         <preConditions onFail="MARK_RAN">
-        <not>
-        <tableExists tableName="cliente" schemaName="public"/>
-        </not>
+	        <not>
+	        <tableExists tableName="cliente" schemaName="public"/>
+	        </not>
         </preConditions>
 
         <createTable tableName="cliente">

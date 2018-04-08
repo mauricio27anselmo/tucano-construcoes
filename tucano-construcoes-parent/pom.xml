@@ -7,7 +7,7 @@
     <groupId>br.com.construcoes.tucano</groupId>
     <artifactId>tucano-construcoes-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -66,8 +66,8 @@
         </dependencies>
     </dependencyManagement>
     <modules>
-        <module>../tucano-construcoes-controlador</module>
-        <module>../tucano-construcoes-negocio</module>
-        <module>../tucano-construcoes-visao</module>
+    	<module>../tucano-construcoes-controlador</module>
+    	<module>../tucano-construcoes-negocio</module>
+    	<module>../tucano-construcoes-visao</module>
     </modules>
 </project>

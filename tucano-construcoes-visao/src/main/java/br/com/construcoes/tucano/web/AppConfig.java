@@ -22,20 +22,20 @@ import br.com.construcoes.tucano.BaseComponentScan;
 @EnableWebMvc
 public class AppConfig{
 	
-//	@Bean(name = "dataSource")
-//	public DataSource dataSource(){
-//		HikariConfig config = new HikariConfig();
-//		config.setJdbcUrl("jdbc:postgresql://localhost:5432/tucano_construcoes");
-//		config.setUsername("postgres");
-//		config.setPassword("m@sterk3y");
-//		return new HikariDataSource(config);
-//	}
-//	
-//	@Bean(name = "liquibase")
-//	public SpringLiquibase liquibase(@Qualifier("dataSource")DataSource dataSource){
-//		SpringLiquibase liquibase = new SpringLiquibase();
-//		liquibase.setDataSource(dataSource());
-//		liquibase.setChangeLog("classpath:changelog/changelog-master.xml");
-//		return liquibase;
-//	}
+	@Bean(name = "dataSource")
+	public DataSource dataSource(){
+		HikariConfig config = new HikariConfig();
+		config.setJdbcUrl("jdbc:sqlserver://localhost:1433;databaseName=db_tucano_construcoes");
+		config.setUsername("sa");
+		config.setPassword("m@sterk3y");
+		return new HikariDataSource(config);
+	}
+	
+	@Bean(name = "liquibase")
+	public SpringLiquibase liquibase(@Qualifier("dataSource")DataSource dataSource){
+		SpringLiquibase liquibase = new SpringLiquibase();
+		liquibase.setDataSource(dataSource());
+		liquibase.setChangeLog("classpath:changelog/changelog-master.xml");
+		return liquibase;
+	}
 }

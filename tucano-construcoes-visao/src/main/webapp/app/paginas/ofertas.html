@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="../css/frameworks/font-awesome-5.0.8/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/frameworks/angular-growl-v2/angular-growl.min.css">
     <link rel="stylesheet" type="text/css" href="../css/tucano-construcoes.css">
+    <script src="../js/frameworks/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="../js/frameworks/popper-1.14.3/popper.min.js"></script>
     <script src="../js/frameworks/bootstrap-4.0.0/bootstrap.min.js"></script>
     <script src="../js/frameworks/angular-1.6.9/angular.min.js"></script>
     <script src="../js/frameworks/angular-animate/angular-animate.min.js"></script>
@@ -53,9 +55,8 @@
                                 <span ng-bind="produto.valor| currency:'R$'"></span>
                             </td>
                             <td>
-                                <button class="btn btn-success" type="button" ng-click="adicionarCarrinho(produto)">
+                                <button class="btn btn-success" type="button" ng-click="adicionarCarrinho(produto)" data-toggle="tooltip" title="Adicionar ao carrinho">
                                     <i class="fas fa-cart-plus"></i>
-                                    Comprar
                                 </button>
                             </td>
                         </tr>
@@ -94,9 +95,8 @@
                                 <span ng-bind="item.valor | currency:'R$'"></span>
                             </td>
                             <td>
-                                <button class="btn btn-danger" type="button" ng-click="retirarCarrinho(item)">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Retirar
+                                <button class="btn btn-danger" type="button" ng-click="retirarCarrinho(item)" data-toggle="tooltip" title="Retirar do carrinho">
+                                    <i class="fas fa-minus-circle"></i>
                                 </button>
                             </td>
                         </tr>

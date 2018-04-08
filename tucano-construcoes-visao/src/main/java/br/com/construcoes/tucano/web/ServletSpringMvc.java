@@ -1,10 +1,13 @@
 package br.com.construcoes.tucano.web;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
-import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -21,6 +24,7 @@ public class ServletSpringMvc extends AbstractAnnotationConfigDispatcherServletI
 		javax.servlet.ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(dispatcherContext));
 		dispatcher.addMapping("/services/*");
 		dispatcher.setMultipartConfig(new MultipartConfigElement("/tmp",1024 * 1024 * 5, 1024 * 1024 * 5 * 5, 1024 * 1024));
+		
 	}
 
 	@Override
@@ -35,7 +39,7 @@ public class ServletSpringMvc extends AbstractAnnotationConfigDispatcherServletI
 
 	@Override
 	protected String[] getServletMappings() {
-		return new String[]{"/tucano_construcoes"};
+		return new String[]{"/tucano-construcoes"};
 	}
 }
 

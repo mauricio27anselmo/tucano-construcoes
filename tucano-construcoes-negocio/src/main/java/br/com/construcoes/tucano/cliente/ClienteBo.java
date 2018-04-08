@@ -10,14 +10,14 @@ import br.com.construcoes.tucano.utilitarios.Resposta;
 @Service
 public class ClienteBo {
 	
-	@Autowired
+//	@Autowired
 	private ClienteDao dao;
 
-	public List<Cliente> listarClientes(){
-		return dao.listarClientes();
-	}
-	
-	public Resposta adicionarCliente(Cliente cliente) {
-		return dao.adicionarCliente(cliente);
-	}
+//	public List<Cliente> listarClientes(){
+//		return dao.listarClientes();
+//	}
+//	
+//	public Resposta adicionarCliente(Cliente cliente) {
+//		return dao.adicionarCliente(cliente);
+//	}
 }
